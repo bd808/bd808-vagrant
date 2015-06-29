@@ -1,0 +1,6 @@
+# Ignore everything that isn't explicitly added here
+/*
+!/.gitignore
+!/.vagrantplugins
+!/puppet
+!/Vagrantfile

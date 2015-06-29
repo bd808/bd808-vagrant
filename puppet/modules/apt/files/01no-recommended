@@ -1,0 +1,5 @@
+# == This file managed by Puppet ==
+# Do not install recommended or suggested packages by default
+# See http://superuser.com/a/615583
+APT::Install-Recommends "false";
+APT::Install-Suggests "false";
