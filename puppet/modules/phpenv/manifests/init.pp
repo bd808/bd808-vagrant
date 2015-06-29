@@ -23,12 +23,22 @@ class phpenv(
         require => Exec['install_phpenv'],
     }
 
+    file { "${dir}/shims":
+        ensure  => 'directory',
+        require => Exec['install_phpenv'],
+    }
+
     env::profile { 'phpenv':
         content => template('phpenv/env.sh.erb'),
     }
 
     exec { 'rehash phpenv':
-        command     => "${dir}/bin/phpenv rehash",
+        command     => "${dir}/bin/phpenv init - && ${dir}/bin/phpenv rehash",
         refreshonly => true,
+        require => [
+            Exec['install_phpenv'],
+            File["${dir}/plugins"],
+            File["${dir}/shims"],
+        ],
     }
 }
