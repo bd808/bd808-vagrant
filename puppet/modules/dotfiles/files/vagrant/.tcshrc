@@ -1,0 +1,81 @@
+# tcsh sucks
+
+# default umask rw-r--r--
+umask 022
+set nobeep
+set autolist
+set autocorrect
+set complete=enhance
+set correct=all
+unset autologout
+limit coredumpsize 0
+set symlinks=chase
+set listjobs
+set fignore=(.o)
+set inputmode=insert
+set time=(8 "Time spent in user mode   (CPU seconds) : %Us\
+Time spent in kernel mode (CPU seconds) : %Ss\
+Total time                              : %Es\
+CPU utilisation (percentage)            : %P")
+
+set echo_style=both
+
+setenv CC gcc
+setenv EDITOR vim
+setenv PAGER less
+
+setenv LSCOLORS 'dxgxfxDaCxDaDaHbaDacHe';
+alias ls  'ls -FG'
+alias ll  'ls -lA'
+alias lsa 'ls -a'
+alias -   'cd -'
+alias .   'source'
+alias plog 'tail -f /var/log/phperror.log'
+alias clog 'tail -f /var/log/centralerr.log'
+
+# Skip remaining setup if not an interactive shell
+if ($?USER == 0 || $?prompt == 0) exit
+
+setenv EUSER `whoami`
+#setenv SHORT_HOST `echo $HOST | cut -f 1 -d.`
+setenv SHORT_HOST `/bin/hostname | rev | cut -d. -f3- | rev`
+
+# allow C-D to logout
+unset ignoreeof
+
+set notify
+set noclobber
+
+set prompt="[$EUSER@$SHORT_HOST %c3]%# "
+set prompt2="%R? "
+set prompt3="CORRECT>%R (y|n|e)? "
+
+setenv TTY " (`tty | cut -d/ -f3`)"
+switch ( $TERM )
+  case "dtterm*":         # dtterm
+  case "xterm*":          # xterm
+  case "screen":
+    alias seticon 'echo -n "\033]1;\!*\007"'
+    alias sethead 'echo -n "\033]2;\!*\007"'
+    alias cwdcmd  'sethead "${EUSER}@${SHORT_HOST}:${PWD}"  "${TTY}"'
+    breaksw;
+  case "sun*":            # SunView cmdtool/shelltool
+    alias seticon 'echo -n "\033]L\!*\033\\"'
+    alias sethead 'echo -n "\033]l\!*\033\\"'
+    alias cwdcmd  'sethead "${EUSER}@${SHORT_HOST}:${PWD}"  "${TTY}"'
+    breaksw;
+  case "vt[24]20*":       # TNVT and SecureCRT (Windows clients)
+    alias seticon 'echo -n ""'
+    alias sethead 'echo -n "\033]0;\!*\007\033\\"'
+    alias cwdcmd  'sethead "${EUSER}@${SHORT_HOST}:${PWD}"  "${TTY}"'
+    breaksw;
+  default:
+    alias seticon echo -n ""
+    alias sethead echo -n ""
+    unalias cwdcmd
+  endsw
+
+sethead "${EUSER}@${SHORT_HOST}:${PWD}"  "${TTY}"
+seticon ${SHORT_HOST}
+# screen window title
+if ($TERM == "screen") echo -n "\033k${EUSER}@${SHORT_HOST}\033\\"

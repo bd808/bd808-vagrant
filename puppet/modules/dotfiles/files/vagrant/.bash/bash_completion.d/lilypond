@@ -1,0 +1,5 @@
+# lilypond completion by Laurent Martelli <laurent@bearteam.org>
+#
+# $Id: lilypond 67 2007-04-23 14:44:58Z bpd $
+
+complete -f -X '!*.ly' lilypond ly2dvi

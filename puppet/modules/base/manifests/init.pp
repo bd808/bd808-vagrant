@@ -12,4 +12,6 @@ class base {
     ]: }
 
     package { 'python-pip': } -> Package <| provider == pip |>
+
+    dotfiles::user { 'vagrant': }
 }

@@ -1,0 +1,24 @@
+# conflict
+regexp=^C .*$
+colours=red
+count=more
+======
+# modified
+regexp=^M .*$
+colours=blue
+count=more
+======
+# added
+regexp=^A .*$
+colours=cyan
+count=more
+======
+# removed
+regexp=^R .*$
+colours=cyan
+count=more
+======
+# unlisted
+regexp=^\? .*$
+colours=bold
+count=more

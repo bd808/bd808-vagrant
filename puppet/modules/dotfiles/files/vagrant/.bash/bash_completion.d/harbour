@@ -1,0 +1,8 @@
+# harbour completion by Dave Pearson <davep@davep.org>
+# http://www.harbour-project.org/
+#
+# $Id: harbour 67 2007-04-23 14:44:58Z bpd $
+
+complete -f -X '!*.@([Pp][Rr][Gg]|[Cc][Ll][Pp])' harbour gharbour hbpp
+complete -f -X '!*.[Hh][Rr][Bb]' hbrun
+

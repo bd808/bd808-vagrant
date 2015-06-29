@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Dump 256 ansi colors to the terminal.
+
+printf "How each ANSI color is displayed on your terminal:\n\n"
+
+row=0
+for i in {0..255} ; do
+  newrow=$(expr $i / 10)
+  row=$newrow
+  [[ $newrow -ne $row ]] && printf "\n"
+  printf "\x1b[38;5;%dm %03d \e[0m" $i $i
+done
+
+printf '\n\n e.g., "\\x1b[38;5;\x1b[38;5;41m41\e[0mmTEXT\\e[0m" '
+printf "\x1b[38;5;41m(for TEXT like this)\e[0m\n"

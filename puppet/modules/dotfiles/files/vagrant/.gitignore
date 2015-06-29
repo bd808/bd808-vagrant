@@ -1,0 +1,4 @@
+#private
+#mixins/.ssh
+.homedir.known
+.homedir.skip

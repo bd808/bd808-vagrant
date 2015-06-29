@@ -1,0 +1,93 @@
+# svn diff:
+regexp=^Index: .*
+colours=green
+count=stop
+=======
+regexp=^\+(.*$)
+colours=cyan
+count=stop
+=======
+regexp=^\-(--.+$|[^\-].*$|$)
+colours=magenta
+count=stop
+=======
+regexp=^@@ .* @@$
+colours=yellow
+count=stop
+=======
+# svn st/up
+# [ ADMRCXI?!\-][ MC][ L][ \+][ S][ KOTB][ C] ([ \*])?
+# added
+regexp=^A[ MC].*$
+colours=cyan
+count=stop
+=======
+# deletion
+regexp=^D[ M] .*$
+colours=red
+count=stop
+=======
+# modified
+regexp=^M[ M] .*$
+colours=yellow
+count=stop
+=======
+# modified properties
+regexp=^ M .*$
+colours=yellow
+count=stop
+=======
+# replaced
+regexp=^R[ M] .*$
+colours=cyan
+count=stop
+=======
+# conflict
+regexp=^C[ MC] .*$
+colours=bold red
+count=stop
+=======
+# conflict properties
+regexp=^[ ADMRCXI?!\-]C .*$
+colours=bold red
+count=stop
+=======
+# external
+regexp=^X[ M].*$
+colours=bold black
+count=stop
+=======
+# ignored
+regexp=^I[ M].*$
+colours=default
+count=stop
+=======
+# unversioned
+regexp=^\? .*$
+colours=bold
+count=stop
+=======
+# missing
+regexp=^! .*$
+colours=bold white on_red
+count=stop
+=======
+# replaced by different kind
+regexp=^~[ M].*$
+colours=red
+count=stop
+=======
+# updated
+regexp=^U[ M].*$
+colours=magenta
+count=stop
+=======
+# merged
+regexp=^G .*$
+colours=magenta
+count=stop
+=======
+# existed
+regexp=^E .*$
+colours=red
+count=stop

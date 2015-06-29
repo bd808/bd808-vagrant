@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# git-sync-upstream
+
+git fetch origin -v
+git fetch upstream -v
+git merge --ff --no-commit upstream/master
+
+# vim:sw=2 ts=2 sts=2 et ft=sh :
