@@ -2,5 +2,8 @@
 /*
 !/.gitignore
 !/.vagrantplugins
+!/COPYING
+!/LICENSE
 !/puppet
+!/README.md
 !/Vagrantfile
