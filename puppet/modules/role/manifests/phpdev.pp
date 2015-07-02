@@ -10,10 +10,29 @@ class role::phpdev {
         'php5-cli',
     ]: }
 
+    phpenv::install { '5.3.3': }
+    phpenv::install { '5.3.3-debug':
+        version => '5.3.3',
+        debug   => true,
+    }
+    phpenv::install { '5.3.3-zts':
+        version => '5.3.3',
+        zts     => true,
+    }
+    phpenv::install { '5.3.3-debug-zts':
+        version => '5.3.3',
+        debug   => true,
+        zts     => true,
+    }
+
     phpenv::install { '5.5.26': }
     phpenv::install { '5.5.26-debug':
         version => '5.5.26',
         debug   => true,
+    }
+    phpenv::install { '5.5.26-zts':
+        version => '5.5.26',
+        zts     => true,
     }
     phpenv::install { '5.5.26-debug-zts':
         version => '5.5.26',
@@ -25,6 +44,10 @@ class role::phpdev {
     phpenv::install { '5.6.7-debug':
         version => '5.6.7',
         debug   => true,
+    }
+    phpenv::install { '5.6.7-zts':
+        version => '5.6.7',
+        zts     => true,
     }
     phpenv::install { '5.6.7-debug-zts':
         version => '5.6.7',
@@ -38,6 +61,10 @@ class role::phpdev {
     phpenv::install { '7.0.0-debug':
         version => '7.0.0alpha2',
         debug   => true,
+    }
+    phpenv::install { '7.0.0-zts':
+        version => '7.0.0alpha2',
+        zts     => true,
     }
     phpenv::install { '7.0.0-debug-zts':
         version => '7.0.0alpha2',
