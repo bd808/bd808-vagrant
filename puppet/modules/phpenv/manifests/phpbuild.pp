@@ -16,6 +16,7 @@ class phpenv::phpbuild {
     ]: }
 
     git::clone { 'phpbuild':
+        ensure    => 'latest',
         remote    => 'git://github.com/php-build/php-build.git',
         directory => "${phpenv::dir}/plugins/php-build",
     }

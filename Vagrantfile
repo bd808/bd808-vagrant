@@ -7,6 +7,7 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = 'dev'
   config.vm.box = 'ubuntu/trusty64'
   config.vm.network 'private_network', type: 'dhcp'
+  config.ssh.forward_agent = true
 
   if Vagrant.has_plugin?('vagrant-cachier')
         config.cache.scope = :box
