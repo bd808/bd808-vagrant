@@ -8,66 +8,39 @@ class role::phpdev {
     package { [
         'libyaml-dev',
         'php5-cli',
+        'valgrind',
     ]: }
 
-    #phpenv::install { '5.3.3': }
-    #phpenv::install { '5.3.3-debug':
-    #    version => '5.3.3',
-    #    debug   => true,
-    #}
-    #phpenv::install { '5.3.3-zts':
-    #    version => '5.3.3',
-    #    zts     => true,
-    #}
-    #phpenv::install { '5.3.3-debug-zts':
-    #    version => '5.3.3',
-    #    debug   => true,
-    #    zts     => true,
-    #}
-
-    phpenv::install { '5.5.26': }
-    phpenv::install { '5.5.26-debug':
-        version => '5.5.26',
+    phpenv::install { '5.5.38': }
+    phpenv::install { '5.5.38-debug':
+        version => '5.5.38',
         debug   => true,
     }
-    phpenv::install { '5.5.26-zts':
-        version => '5.5.26',
+    phpenv::install { '5.5.38-zts':
+        version => '5.5.38',
         zts     => true,
     }
-    phpenv::install { '5.5.26-debug-zts':
-        version => '5.5.26',
+    phpenv::install { '5.5.38-debug-zts':
+        version => '5.5.38',
         debug   => true,
         zts     => true,
     }
 
-    phpenv::install { '5.6.7': }
-    phpenv::install { '5.6.7-debug':
-        version => '5.6.7',
+    phpenv::install { '5.6.31': }
+    phpenv::install { '5.6.31-debug':
+        version => '5.6.31',
         debug   => true,
     }
-    phpenv::install { '5.6.7-zts':
-        version => '5.6.7',
+    phpenv::install { '5.6.31-zts':
+        version => '5.6.31',
         zts     => true,
     }
-    phpenv::install { '5.6.7-debug-zts':
-        version => '5.6.7',
+    phpenv::install { '5.6.31-debug-zts':
+        version => '5.6.31',
         zts     => true,
         debug   => true,
     }
 
-    phpenv::install { '7.0.7': }
-    #phpenv::install { '7.0.7-debug':
-    #    version => '7.0.7',
-    #    debug   => true,
-    #}
-    #phpenv::install { '7.0.7-zts':
-    #    version => '7.0.7',
-    #    zts     => true,
-    #}
-    #phpenv::install { '7.0.7-debug-zts':
-    #    version => '7.0.7',
-    #    zts     => true,
-    #    debug   => true,
-    #}
-    # TODO: aliases with symlinks like travis does
+    phpenv::install { '7.0.21': }
+    phpenv::install { '7.1.7': }
 }
