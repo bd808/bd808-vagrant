@@ -34,7 +34,7 @@ define env::profile(
     $content  = undef,
     $source   = undef,
 ) {
-    if $priority !~ /^\d?\d$/ {
+    if $priority !~ Integer[0, 99] {
         fail('"priority" must be between 0 - 99')
     }
     if $ensure !~ /^(present|absent)$/ {

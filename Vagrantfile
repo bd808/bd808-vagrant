@@ -5,7 +5,7 @@ Vagrant.require_version '>= 1.7.0'
 
 Vagrant.configure(2) do |config|
   config.vm.hostname = 'dev'
-  config.vm.box = 'ubuntu/trusty64'
+  config.vm.box = 'debian/contrib-stretch64'
   config.vm.network 'private_network', type: 'dhcp'
   config.ssh.forward_agent = true
 
@@ -13,7 +13,7 @@ Vagrant.configure(2) do |config|
         config.cache.scope = :box
   end
   if Vagrant.has_plugin?('vagrant-vbguest')
-    config.vbguest.auto_update = true
+    config.vbguest.auto_update = false
   end
 
   config.vm.provider 'virtualbox' do |vb|
@@ -23,6 +23,7 @@ Vagrant.configure(2) do |config|
     vb.customize ['modifyvm', :id, '--cpus', `sysctl -n hw.ncpu`.to_i]
   end
 
+  config.vm.provision :shell, path: 'puppet/bootstrap.sh'
   config.vm.provision :puppet do |puppet|
     puppet.module_path = []
     puppet.manifests_path = [:guest, '/vagrant/puppet/manifests']
